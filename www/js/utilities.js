@@ -14,6 +14,17 @@ var showMenu = function () {
     }
 };
 
+var resizeMenuContainer = function () {
+
+    var height = $(window).height();
+    var width = $(window).width() - 50;
+    // alert("Width:" + $(window).width() + " Height:" + $(window).height());
+
+    $("#mainMenuContainer").height(height);
+    $("#mainMenuContainer").width(width);
+
+};
+
 var showScanner = function () {
     window.plugins.barcodeScanner.scan(function (result) {
         cdt.Application.getCurrentViewModel().promptControl.onScan(result.text, result.cancelled);
