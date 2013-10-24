@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<div id='frmInvInq' data-role='view' data-title='Inventory Inquiry' data-show='frmInvInq.viewModel.initialize' data-model='frmInvInq.viewModel' >
+<script>
+	var frmInvInq = frmInvInq || {};
+		frmInvInq.RWC_LOCATION_DATASET = new kendo.data.DataSource({ data: [{}]  });
+		frmInvInq.RWC_CONFIG_DATASET = new kendo.data.DataSource({ data: [{}]  });
+		frmInvInq.RWC_SIZE_DATASET = new kendo.data.DataSource({ data: [
+		]  });
+		frmInvInq.RWC_COLOR_DATASET = new kendo.data.DataSource({ data: [
+		]  });
+		frmInvInq.RWC_ITEM_IN_STOCK_DATASET = new kendo.data.DataSource({ data: [
+		{UNIT_OF_MEAS: "",
+		ITEM_ID: "7001",
+		COLOR: "",
+		CONFIG: "",
+		SIZE: "",
+		SITE: "HQ",
+		WAREHOUSE: "10",
+		LOCATION: "",
+		ITEM_NAME: "Housing incl. mounted parts for M2400S",
+		DESCRIPTION: "",
+		AVAILABLE_PHYSICAL: "100",
+		AVAILABLE_WITH_ORDER: "0",
+		PALLET_TYPE_ID: "",
+		SERIAL_NO: "",
+		BATCH_NUMBER: "B00003",
+		RESERVED_PHYSICAL: "0",
+		_COUNT: "5",
+		_CURRENT: "1"}
+		,
+		{UNIT_OF_MEAS: "",
+		ITEM_ID: "7001",
+		COLOR: "",
+		CONFIG: "",
+		SIZE: "",
+		SITE: "HQ",
+		WAREHOUSE: "10",
+		LOCATION: "",
+		ITEM_NAME: "Housing incl. mounted parts for M2400S",
+		DESCRIPTION: "",
+		AVAILABLE_PHYSICAL: "1",
+		AVAILABLE_WITH_ORDER: "0",
+		PALLET_TYPE_ID: "",
+		SERIAL_NO: "",
+		BATCH_NUMBER: "B00004",
+		RESERVED_PHYSICAL: "0",
+		_COUNT: "5",
+		_CURRENT: "2"}
+		,
+		{UNIT_OF_MEAS: "",
+		ITEM_ID: "7001",
+		COLOR: "",
+		CONFIG: "",
+		SIZE: "",
+		SITE: "HQ",
+		WAREHOUSE: "10",
+		LOCATION: "",
+		ITEM_NAME: "Housing incl. mounted parts for M2400S",
+		DESCRIPTION: "",
+		AVAILABLE_PHYSICAL: "1",
+		AVAILABLE_WITH_ORDER: "0",
+		PALLET_TYPE_ID: "",
+		SERIAL_NO: "",
+		BATCH_NUMBER: "B00005",
+		RESERVED_PHYSICAL: "0",
+		_COUNT: "5",
+		_CURRENT: "3"}
+		,
+		{UNIT_OF_MEAS: "",
+		ITEM_ID: "7001",
+		COLOR: "",
+		CONFIG: "",
+		SIZE: "",
+		SITE: "HQ",
+		WAREHOUSE: "10",
+		LOCATION: "",
+		ITEM_NAME: "Housing incl. mounted parts for M2400S",
+		DESCRIPTION: "",
+		AVAILABLE_PHYSICAL: "1.1",
+		AVAILABLE_WITH_ORDER: "0",
+		PALLET_TYPE_ID: "",
+		SERIAL_NO: "",
+		BATCH_NUMBER: "B00006",
+		RESERVED_PHYSICAL: "0",
+		_COUNT: "5",
+		_CURRENT: "4"}
+		,
+		{UNIT_OF_MEAS: "",
+		ITEM_ID: "7001",
+		COLOR: "",
+		CONFIG: "",
+		SIZE: "",
+		SITE: "HQ",
+		WAREHOUSE: "10",
+		LOCATION: "",
+		ITEM_NAME: "Housing incl. mounted parts for M2400S",
+		DESCRIPTION: "",
+		AVAILABLE_PHYSICAL: "2.9",
+		AVAILABLE_WITH_ORDER: "-252.5",
+		PALLET_TYPE_ID: "",
+		SERIAL_NO: "",
+		BATCH_NUMBER: "B00007",
+		RESERVED_PHYSICAL: "0",
+		_COUNT: "5",
+		_CURRENT: "5"}
+		]  });
+		frmInvInq.RWC_PromptControl1 = new cdt.promptControl('Reset','Previous', 'Abort', 'Options' , 'frmInvInq' );
+		frmInvInq.RWC_DataSet1 = new kendo.data.DataSource({ data: [{}]  });
+		frmInvInq.RWC_PromptControl1_Site_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.Site = new cdt.prompt("Site", // Name
+				"Site" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"v_site", // Validation
+				false, // ValidIfNotEmpty
+				"SITE", // Variable
+				null, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.Site);
+
+		frmInvInq.RWC_PromptControl1_Warehouse_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.Warehouse = new cdt.prompt("Warehouse", // Name
+				"Warehouse" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"v_Warehouse", // Validation
+				false, // ValidIfNotEmpty
+				"WAREHOUSE", // Variable
+				null, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.Warehouse);
+
+		frmInvInq.RWC_PromptControl1_PART_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.SERIAL_NO = 
+			// Line#  2 : Var.BATCH_NUMBER = 
+			// Line#  3 : Var.PALLET_ID = 
+			// Line#  4 : Var.LOCATION = 
+			// Line#  5 : Var.QTY = 
+			// Line#  6 : If Var.ITEM_ID <> (Alpha) ""
+			// Line#  7 : SendValidation ( v_Item ) 
+			// Line#  8 : Var.STATUS = Mvr.v_Item.STATUS
+			// Line#  9 : If Var.STATUS <> (Alpha) Y
+			// Line#  10 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  11 : CancelDefault( )
+			// Line#  12 : ExitEvent( )
+			// Line#  13 : End If
+			// Line#  14 : SetHistoryTextEx ( RWC_PromptControl1 , ITEM , @ITEM ID , Var.ITEM_ID , True ) 
+			// Line#  15 : Var.PRODUCT = Mvr.v_Item.PRODUCT
+			// Line#  16 : Var.COLOR = Mvr.v_Item.STANDARDINVENTCOLORID
+			// Line#  17 : Var.SIZE = Mvr.v_Item.STANDARDINVENTSIZEID
+			// Line#  18 : Var.CONFIGURATION = Mvr.v_Item.STANDARDCONFIGID
+			// Line#  19 : SendValidation ( v_Dimension_Group ) 
+			// Line#  20 : Var.SIZE_ACTIVE = Mvr.v_Dimension_Group.SIZE_ACTIVE
+			// Line#  21 : Var.QTY_OF_SIZE = Mvr.v_Dimension_Group.QTY_OF_SIZE
+			// Line#  22 : Var.COLOR_ACTIVE = Mvr.v_Dimension_Group.COLOR_ACTIVE
+			// Line#  23 : Var.QTY_OF_COLOR = Mvr.v_Dimension_Group.QTY_OF_COLOR
+			// Line#  24 : Var.CONFIGURATION_ACTIVE = Mvr.v_Dimension_Group.CONFIGURATION_ACTIVE
+			// Line#  25 : Var.QTY_OF_CONFIGURATION = Mvr.v_Dimension_Group.QTY_OF_CONFIGURATION
+			// Line#  26 : If Mvr.v_Dimension_Group.LOCATION_ACTIVE = (Alpha) Y
+			// Line#  27 : ShowPrompt ( RWC_PromptControl1 , LOCATION ) 
+			// Line#  28 : ExitEvent( )
+			// Line#  29 : End If
+			// Line#  30 : If Var.SIZE_ACTIVE = (Alpha) Y
+			// Line#  31 : If Var.QTY_OF_SIZE > (Alpha) 1
+			// Line#  32 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Size ) 
+			// Line#  33 : ShowPrompt ( RWC_PromptControl1 , Size ) 
+			// Line#  34 : ExitEvent( )
+			// Line#  35 : End If
+			// Line#  36 : End If
+			// Line#  37 : If Var.COLOR_ACTIVE = (Alpha) Y
+			// Line#  38 : If Var.QTY_OF_COLOR > (Alpha) 1
+			// Line#  39 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Color ) 
+			// Line#  40 : ShowPrompt ( RWC_PromptControl1 , Color ) 
+			// Line#  41 : ExitEvent( )
+			// Line#  42 : End If
+			// Line#  43 : End If
+			// Line#  44 : If Var.CONFIGURATION_ACTIVE = (Alpha) Y
+			// Line#  45 : If Var.QTY_OF_CONFIGURATION > (Alpha) 1
+			// Line#  46 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Config ) 
+			// Line#  47 : ShowPrompt ( RWC_PromptControl1 , Config ) 
+			// Line#  48 : ExitEvent( )
+			// Line#  49 : End If
+			// Line#  50 : End If
+			// Line#  51 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  52 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  53 : If Var.ROWCNT < (Numeric) 1
+			// Line#  54 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			shouldContinue = false;
+			// Line#  56 : ExitEvent( )
+			// Line#  57 : Else
+			frmInvInq.RWC_PromptControl1.showPrompt("InventoryList");
+			// Line#  59 : ExitEvent( )
+			// Line#  60 : End If
+			// Line#  61 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_PART_OnClick = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+		try{
+			
+			
+			// Line#  1 : Var.SITE = 
+			// Line#  2 : Var.WAREHOUSE = 
+			// Line#  3 : ReturnToPrompt ( RWC_PromptControl1 , Site , True , True ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_PART_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_PART_PreviousClick = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.PART = new cdt.prompt("PART", // Name
+				"Item Number" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				true, // ShowButton
+				"Change Site & Warehouse", // Button Resource ID
+				frmInvInq.PART_Click , // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"ITEM_ID", // Variable
+				frmInvInq.RWC_PromptControl1_PART_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.PART);
+
+		frmInvInq.RWC_PromptControl1_LOCATION_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.LOCATION <> (Alpha) ""
+			// Line#  2 : SendValidation ( v_Location ) 
+			// Line#  3 : Var.STATUS = Mvr.v_Location.STATUS
+			// Line#  4 : If Var.STATUS <> (Alpha) Y
+			// Line#  5 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  6 : CancelDefault( )
+			// Line#  7 : ExitEvent( )
+			// Line#  8 : End If
+			// Line#  9 : If Var.SIZE_ACTIVE = (Alpha) Y
+			// Line#  10 : If Var.QTY_OF_SIZE > (Alpha) 1
+			// Line#  11 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Size ) 
+			// Line#  12 : ShowPrompt ( RWC_PromptControl1 , Size ) 
+			// Line#  13 : ExitEvent( )
+			// Line#  14 : Else If Var.QTY_OF_SIZE = (Alpha) 1
+			// Line#  15 : Var.SIZE = Mvr.v_Item.STANDARDINVENTSIZEID
+			// Line#  16 : Else
+			// Line#  17 : Var.SIZE = 
+			// Line#  18 : End If
+			// Line#  19 : End If
+			// Line#  20 : If Var.COLOR_ACTIVE = (Alpha) Y
+			// Line#  21 : If Var.QTY_OF_COLOR > (Alpha) 1
+			// Line#  22 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Color ) 
+			// Line#  23 : ShowPrompt ( RWC_PromptControl1 , Color ) 
+			// Line#  24 : ExitEvent( )
+			// Line#  25 : Else If Var.QTY_OF_COLOR = (Alpha) 1
+			// Line#  26 : Var.COLOR = Mvr.v_Item.STANDARDINVENTSIZEID
+			// Line#  27 : Else
+			// Line#  28 : Var.COLOR = 
+			// Line#  29 : End If
+			// Line#  30 : End If
+			// Line#  31 : If Var.CONFIGURATION_ACTIVE = (Alpha) Y
+			// Line#  32 : If Var.QTY_OF_CONFIGURATION > (Alpha) 1
+			// Line#  33 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Config ) 
+			// Line#  34 : ShowPrompt ( RWC_PromptControl1 , Config ) 
+			// Line#  35 : ExitEvent( )
+			// Line#  36 : Else If Var.QTY_OF_CONFIGURATION = (Alpha) 1
+			// Line#  37 : Var.CONFIGURATION = Mvr.v_Item.STANDARDCONFIGID
+			// Line#  38 : Else
+			// Line#  39 : Var.CONFIGURATION = 
+			// Line#  40 : End If
+			// Line#  41 : End If
+			// Line#  42 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  43 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  44 : If Var.ROWCNT < (Numeric) 1
+			// Line#  45 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			// Line#  46 : CancelDefault( )
+			// Line#  47 : ExitEvent( )
+			// Line#  48 : Else
+			// Line#  49 : ShowPrompt ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  50 : ExitEvent( )
+			// Line#  51 : End If
+			// Line#  52 : Else If Var.ITEM_ID = (Alpha) ""
+			// Line#  53 : StatusWindow ( @Info , @Item or location is required , 2 ) 
+			// Line#  54 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  55 : CancelDefault( )
+			// Line#  56 : ExitEvent( )
+			// Line#  57 : Else If Var.ITEM_ID <> (Alpha) ""
+			// Line#  58 : If Var.SIZE_ACTIVE = (Alpha) Y
+			// Line#  59 : If Var.QTY_OF_SIZE > (Alpha) 1
+			// Line#  60 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Size ) 
+			// Line#  61 : ShowPrompt ( RWC_PromptControl1 , Size ) 
+			// Line#  62 : ExitEvent( )
+			// Line#  63 : Else If Var.QTY_OF_SIZE = (Alpha) 1
+			// Line#  64 : Var.SIZE = Mvr.v_Item.STANDARDINVENTSIZEID
+			// Line#  65 : Else
+			// Line#  66 : Var.SIZE = 
+			// Line#  67 : End If
+			// Line#  68 : End If
+			// Line#  69 : If Var.COLOR_ACTIVE = (Alpha) Y
+			// Line#  70 : If Var.QTY_OF_COLOR > (Alpha) 1
+			// Line#  71 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Color ) 
+			// Line#  72 : ShowPrompt ( RWC_PromptControl1 , Color ) 
+			// Line#  73 : ExitEvent( )
+			// Line#  74 : Else If Var.QTY_OF_COLOR = (Alpha) 1
+			// Line#  75 : Var.COLOR = Mvr.v_Item.STANDARDINVENTSIZEID
+			// Line#  76 : Else
+			// Line#  77 : Var.COLOR = 
+			// Line#  78 : End If
+			// Line#  79 : End If
+			// Line#  80 : If Var.CONFIGURATION_ACTIVE = (Alpha) Y
+			// Line#  81 : If Var.QTY_OF_CONFIGURATION > (Alpha) 1
+			// Line#  82 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Config ) 
+			// Line#  83 : ShowPrompt ( RWC_PromptControl1 , Config ) 
+			// Line#  84 : ExitEvent( )
+			// Line#  85 : Else If Var.QTY_OF_CONFIGURATION = (Alpha) 1
+			// Line#  86 : Var.CONFIGURATION = Mvr.v_Item.STANDARDCONFIGID
+			// Line#  87 : Else
+			// Line#  88 : Var.CONFIGURATION = 
+			// Line#  89 : End If
+			// Line#  90 : End If
+			// Line#  91 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  92 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  93 : If Var.ROWCNT < (Numeric) 1
+			// Line#  94 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			// Line#  95 : CancelDefault( )
+			// Line#  96 : ExitEvent( )
+			// Line#  97 : Else
+			frmInvInq.RWC_PromptControl1.showPrompt("InventoryList");
+			// Line#  99 : ExitEvent( )
+			// Line#  100 : End If
+			// Line#  101 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_LOCATION_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.LOCATION = new cdt.prompt("LOCATION", // Name
+				"Location" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"LOCATION", // Variable
+				frmInvInq.RWC_PromptControl1_LOCATION_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.LOCATION);
+
+		frmInvInq.RWC_PromptControl1_Size_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.SIZE = Dsv.RWC_SIZE_DATASET.NAME
+			// Line#  2 : SetHistoryTextEx ( RWC_PromptControl1 , Size , @Size , Var.SIZE , True ) 
+			// Line#  3 : If Var.COLOR_ACTIVE = (Alpha) Y
+			// Line#  4 : If Var.QTY_OF_COLOR > (Alpha) 1
+			// Line#  5 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Color ) 
+			// Line#  6 : ShowPrompt ( RWC_PromptControl1 , Color ) 
+			// Line#  7 : ExitEvent( )
+			// Line#  8 : End If
+			// Line#  9 : End If
+			// Line#  10 : If Var.CONFIGURATION_ACTIVE = (Alpha) Y
+			// Line#  11 : If Var.QTY_OF_CONFIGURATION > (Alpha) 1
+			// Line#  12 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Config ) 
+			// Line#  13 : ShowPrompt ( RWC_PromptControl1 , Config ) 
+			// Line#  14 : ExitEvent( )
+			// Line#  15 : End If
+			// Line#  16 : End If
+			// Line#  17 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  18 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  19 : If Var.ROWCNT < (Numeric) 1
+			// Line#  20 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			// Line#  21 : CancelDefault( )
+			// Line#  22 : ExitEvent( )
+			// Line#  23 : Else
+			// Line#  24 : ShowPrompt ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  25 : ExitEvent( )
+			// Line#  26 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_Size_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : Var.SITE = Gvr.SITE
+			// Line#  3 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  4 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  6 : UpdateData ( Get ) 
+			// Line#  7 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.RWC_PromptControl1LP0 = new cdt.prompt( "Size", // name 
+			"Size", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmInvInq.RWC_PromptControl1_Size_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmInvInq.RWC_PromptControl1_Size_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.RWC_PromptControl1LP0);
+
+
+		frmInvInq.RWC_PromptControl1LP0_template = "<li data-uid='#= data.uid #'><a>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 12%;width: 30%;text-align:right;'>Name:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 42%;width: 48%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 42%;text-align:right;'>Description:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 42%;width: 55%;text-align:left;'>#= data.DESCRIPTION #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP0_template += "<br /></a></li>";
+		frmInvInq.RWC_PromptControl1LP0.setLayout( kendo.template(frmInvInq.RWC_PromptControl1LP0_template, { useWithBlock: false } ) );
+
+		frmInvInq.RWC_PromptControl1LP0.setDataSource(frmInvInq.RWC_SIZE_DATASET);
+		frmInvInq.RWC_PromptControl1_Color_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.COLOR = Dsv.RWC_COLOR_DATASET.NAME
+			// Line#  2 : SetHistoryTextEx ( RWC_PromptControl1 , Color , @Color , Var.COLOR , True ) 
+			// Line#  3 : If Var.CONFIGURATION_ACTIVE = (Alpha) Y
+			// Line#  4 : If Var.QTY_OF_CONFIGURATION > (Alpha) 1
+			// Line#  5 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Config ) 
+			// Line#  6 : ShowPrompt ( RWC_PromptControl1 , Config ) 
+			// Line#  7 : ExitEvent( )
+			// Line#  8 : End If
+			// Line#  9 : End If
+			// Line#  10 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  11 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  12 : If Var.ROWCNT < (Numeric) 1
+			// Line#  13 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			// Line#  14 : CancelDefault( )
+			// Line#  15 : ExitEvent( )
+			// Line#  16 : Else
+			// Line#  17 : ShowPrompt ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  18 : ExitEvent( )
+			// Line#  19 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_Color_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.RWC_PromptControl1LP1 = new cdt.prompt( "Color", // name 
+			"Color", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmInvInq.RWC_PromptControl1_Color_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmInvInq.RWC_PromptControl1_Color_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.RWC_PromptControl1LP1);
+
+
+		frmInvInq.RWC_PromptControl1LP1_template = "<li data-uid='#= data.uid #'><a>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Name:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 48%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 39%;text-align:right;'>Description:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 55%;text-align:left;'>#= data.DESCRIPTION #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP1_template += "<br /></a></li>";
+		frmInvInq.RWC_PromptControl1LP1.setLayout( kendo.template(frmInvInq.RWC_PromptControl1LP1_template, { useWithBlock: false } ) );
+
+		frmInvInq.RWC_PromptControl1LP1.setDataSource(frmInvInq.RWC_COLOR_DATASET);
+		frmInvInq.RWC_PromptControl1_Config_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.CONFIGURATION = Dsv.RWC_CONFIG_DATASET.NAME
+			// Line#  2 : DownloadListPromptFromQueue ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  3 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  4 : If Var.ROWCNT < (Numeric) 1
+			// Line#  5 : StatusWindow ( @Info , @No item in stock. , 2 ) 
+			// Line#  6 : CancelDefault( )
+			// Line#  7 : ExitEvent( )
+			// Line#  8 : Else
+			// Line#  9 : ShowPrompt ( RWC_PromptControl1 , InventoryList ) 
+			// Line#  10 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_Config_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.RWC_PromptControl1LP2 = new cdt.prompt( "Config", // name 
+			"Configuration", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmInvInq.RWC_PromptControl1_Config_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmInvInq.RWC_PromptControl1_Config_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.RWC_PromptControl1LP2);
+
+
+		frmInvInq.RWC_PromptControl1LP2_template = "<li data-uid='#= data.uid #'><a>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Name:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 48%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 39%;text-align:right;'>Description:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 42%;text-align:left;'>#= data.DESCRIPTION #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP2_template += "<br /></a></li>";
+		frmInvInq.RWC_PromptControl1LP2.setLayout( kendo.template(frmInvInq.RWC_PromptControl1LP2_template, { useWithBlock: false } ) );
+
+		frmInvInq.RWC_PromptControl1LP2.setDataSource(frmInvInq.RWC_CONFIG_DATASET);
+		frmInvInq.RWC_PromptControl1_InventoryList_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			frmInvInq.RWC_PromptControl1.returnToPrompt("PART",true,true);
+			shouldContinue = false;
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmInvInq.RWC_PromptControl1_InventoryList_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : Var.SITE = Gvr.SITE
+			// Line#  4 : Var.WAREHOUSE = Gvr.WAREHOUSE
+			// Line#  5 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Warehouse , Var.WAREHOUSE , True ) 
+			// Line#  6 : SetHistoryTextEx ( RWC_PromptControl1 , Site , @Site , Var.SITE , False ) 
+			// Line#  7 : UpdateData ( Get ) 
+			// Line#  8 : ShowPrompt ( RWC_PromptControl1 , PART ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmInvInq.RWC_PromptControl1LP3 = new cdt.prompt( "InventoryList", // name 
+			"Inventory Inquiry", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmInvInq.RWC_PromptControl1_InventoryList_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmInvInq.RWC_PromptControl1_InventoryList_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmInvInq.RWC_PromptControl1.addPrompt(frmInvInq.RWC_PromptControl1LP3);
+
+
+		frmInvInq.RWC_PromptControl1LP3_template = "<li data-uid='#= data.uid #'><a>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 24%;width: 15%;text-align:right;'>Row:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 12%;text-align:left;'>#= data._CURRENT #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 55%;width: 9%;text-align:left;'>of&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 67%;width: 12%;text-align:left;'>#= data._COUNT #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Item No:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 30%;text-align:left;'>#= data.ITEM_ID #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Item Name:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 45%;text-align:left;'>#= data.ITEM_NAME #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 39%;text-align:right;'>Description:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 58%;text-align:left;'>#= data.DESCRIPTION #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 36%;text-align:right;'>Warehouse:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 36%;text-align:left;'>#= data.WAREHOUSE #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Location:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.LOCATION #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Batch No:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 45%;text-align:left;'>#= data.BATCH_NUMBER #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Serial:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 45%;text-align:left;'>#= data.SERIAL_NO #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Config:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.CONFIG #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Size:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.SIZE #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Color:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.COLOR #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 9%;width: 30%;text-align:right;'>Qty OH:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.AVAILABLE_PHYSICAL #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br/>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 33%;text-align:right;'>Qty Rsrvd:&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 39%;width: 61%;text-align:left;'>#= data.RESERVED_PHYSICAL #&nbsp;&nbsp;</span>";
+		frmInvInq.RWC_PromptControl1LP3_template += "<br /></a></li>";
+		frmInvInq.RWC_PromptControl1LP3.setLayout( kendo.template(frmInvInq.RWC_PromptControl1LP3_template, { useWithBlock: false } ) );
+
+		frmInvInq.RWC_PromptControl1LP3.setDataSource(frmInvInq.RWC_ITEM_IN_STOCK_DATASET);
+		frmInvInq.viewModel = new cdt.viewModel( "frmInvInq",frmInvInq.RWC_PromptControl1,"frmInvInq");
+</script>
+	        <header data-role='header'>
+	            <div data-role='navbar'>
+	                <div data-role='view-title'></div>
+	                <a data-role='button' data-align='right' data-rel='popover' href='#popupMenu' data-icon='settings'></a>
+	                <a data-bind='visible: isMenuVisible' data-role='button' data-align='left' data-click='showMenu' data-icon='organize' ></a>
+	            </div>
+	        </header>
+	        <div data-bind='invisible: isLoggedIn'>
+	            <div data-bind='visible: promptControl.isCurrentPromptList' >
+	                <ul id='frmInvInq-listControl' data-role='listview' ></ul>
+	            </div>
+	            <div id='frmInvInq-historyScroller' data-role='scroller' class='historyScroller' >
+	                <ul id='frmInvInq-historyList' data-role='listview' data-template='historyTemplate' data-bind='visible: promptControl.isHistoryVisible' style='margin-bottom: 20px; margin-left: 0px;'></ul>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptText' >
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmInvInq-textInput' data-bind='text: promptControl.textControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmInvInq-textInput' type='text' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.textControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div><img src='images/barcode.png' style='width:32px; height:32px;' onclick='showScanner()' /></div>
+	                    <div><img src='images/reset.png' id='Img1' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptPassword'>
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmInvInq-passwordInput' data-bind='text: promptControl.passwordControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmInvInq-passwordInput' type='password' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.passwordControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div style='height:46px'></div>
+	                    <div><img src='images/reset.png' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	        </div>
+</div>
+</body>
+</html>

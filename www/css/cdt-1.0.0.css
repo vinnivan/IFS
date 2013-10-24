@@ -1,0 +1,278 @@
+﻿    .km-root .km-android .km-view
+    {
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+    }
+
+    .km-android .km-navbar .km-view-title /* After Q2 2012 SP1 */
+    {
+        visibility: visible;
+    }
+
+    .historyScroller
+    {
+        height: 200px;
+        z-index:10; /* For Android - scroller was on top of all controls*/
+    }
+
+    .overviewLogo
+    {
+        display:block;
+        margin-left:auto;
+        width:60%;
+        margin-right:auto;
+        padding:30px;
+    }
+
+    .radleyLogo
+    {
+        display:block;
+        margin-left:auto;
+        width:44%;
+        margin-right:auto;
+        padding:20px;
+    }
+
+
+    .promptControlLeft
+    {
+        position: absolute;
+        left: 0;
+        width: 80%;
+        margin-left: 10px;
+        padding: 0px;
+    }
+
+    .promptControlLeft div
+    {
+        line-height: 40px;
+        margin: 0;
+    }
+
+    .promptControlRight
+    {
+        position: absolute;
+        left: 90%;
+        width: auto;
+        padding-left: 0px;
+        color: #000000;
+        padding: 0px;
+    }
+
+    .promptControlRight div
+    {
+        line-height: 38px;
+        margin: 0,4px,0,0;
+    }
+
+
+    #messageBoxDialog
+    {
+        width: 480px;
+        height: 300px;
+    }
+
+    #messageBoxDialog #messageBoxText
+    {
+        height: 160px;
+        margin: 10px 20px 10px 20px;
+    }
+
+    #messageBoxDialog #messageBoxButtons
+    {
+        margin-top: 20px;
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #messageBoxDialog #messageBoxButtons a
+    {
+        width: 40px;
+    }
+
+
+    .item-title
+    {
+        float: none;
+        font-size: 1em;
+        line-height: 1.4em;
+        margin: .3em 1em 0 .6em;
+        width: 70%;
+    }
+
+    .item-info
+    {
+        float: none;
+        font-size: .7em;
+        line-height: 1em;
+        margin: 0 0 0 2em;
+        width: 95%;
+    }
+
+    .item-photo
+    {
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin: 6px 4px 0 0;
+    }
+
+    #mainMenu .item-title
+    {
+        float: none;
+        font-size: 1em;
+        line-height: 1.4em;
+        margin: .3em 1em 0 .6em;
+    }
+
+    #mainMenu .item-info
+    {
+        float: none;
+        font-size: .7em;
+        line-height: 1em;
+        margin: -8px 0 0 0 40px;
+        color: #bababa;
+    }
+
+
+    #mainMenu .item-title, #mainMenu .item-info
+    {
+        color: #000;
+    }
+
+
+    #mainMenu
+    {
+        margin: 0;
+    }
+
+
+    #mainMenu .head
+    {
+        color: #000000;
+    }
+
+    #mainMenuContainer 
+    {
+        width: 300px; 
+        height: 460px;
+        /*background-color: yellow;*/
+        display:none;
+    }
+
+
+    @media all and (max-width: 400px)
+    {
+        #messageBoxDialog
+        {
+            width: 350px;
+            height: 300px;
+        }
+
+        #messageBoxDialog #messageBoxText
+        {
+            height: 180px;
+        }
+
+        #messageBoxDialog #messageBoxButtons
+        {
+            margin-top: 10px;
+        }
+
+        #messageBoxDialog #messageBoxText a
+        {
+            width: 100px;
+        }
+    }
+
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 540px) and (orientation : portrait)
+    {
+        #mainMenuContainer 
+        {
+            width: 300px; 
+            height: 400px;
+            /*background-color: purple;*/
+        }
+
+        .historyScroller
+        {
+            height: 200px;
+        }
+
+
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 540px) and (orientation : landscape)
+    {
+        #mainMenuContainer 
+        {
+            width: 300px; 
+            height: 300px;
+            /*background-color: purple;*/
+        }
+
+        .historyScroller
+        {
+            height: 150px;
+        }
+    }
+
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait)
+    {
+        #mainMenuContainer 
+        {
+            width: 300px; 
+            height: 1000px;
+            /*background-color: green;*/
+        }
+
+        .historyScroller
+        {
+            height: 400px;
+        }
+
+
+    }
+
+    @media only screen (min-device-width: 768px) and (max-device-width: 2048px) and (orientation : landscape)
+    {
+        #mainMenuContainer 
+        {
+            width: 300px; 
+            height: 720px;
+            /*background-color: blue;*/
+        }
+
+        .historyScroller
+        {
+            height: 300px;
+        }
+
+    }
+
+
+    @media all and (min-device-width: 1025px)
+    {
+        #mainMenuContainer 
+        {
+            width: 300px; 
+            height: 640px;
+            /*background-color: red;*/
+        }
+    }
+
+
+    #overview
+    {
+        -webkit-box-shadow: 5px 5px 10px -2px #808080;
+        box-shadow: 5px 5px 10px -2px #808080;
+        border: 1px solid #fff;
+        padding: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 7px;
+    }

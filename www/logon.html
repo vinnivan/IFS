@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<div id='main' data-role='view' data-title='Login' data-show='logon.viewModel.initialize' data-model='logon.viewModel' >
+<script>
+	var logon = logon || {};
+		logon.RWC_PromptControl1 = new cdt.promptControl('Reset','Previous', 'Abort', 'Options' , 'logon' );
+		logon.RWC_WAREHOUSE_DATASET = new kendo.data.DataSource({ data: [
+		{INVENTLOCATIONID: "10",
+		NAME: "Main warehouse",
+		INVENTLOCATIONIDQUARANTINE: "11",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145096",
+		INVENTLOCATIONTYPE: "0",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "1",
+		WMSRACKNAMEACTIVE: "1",
+		WMSRACKFORMAT: "-##",
+		WMSLEVELNAMEACTIVE: "1",
+		WMSLEVELFORMAT: "-##",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "99",
+		INVENTLOCATIONTYPENAME: "Standard"}
+		,
+		{INVENTLOCATIONID: "11",
+		NAME: "Main warehouse - Quarantine",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145097",
+		INVENTLOCATIONTYPE: "1",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "",
+		INVENTLOCATIONTYPENAME: "Quarantine"}
+		,
+		{INVENTLOCATIONID: "30",
+		NAME: "Production storage",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145101",
+		INVENTLOCATIONTYPE: "0",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "99",
+		INVENTLOCATIONTYPENAME: "Standard"}
+		,
+		{INVENTLOCATIONID: "60",
+		NAME: "Consignment stock at the  customer",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145102",
+		INVENTLOCATIONTYPE: "0",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "99",
+		INVENTLOCATIONTYPENAME: "Standard"}
+		,
+		{INVENTLOCATIONID: "70",
+		NAME: "Consignment stock at the  vendor",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145103",
+		INVENTLOCATIONTYPE: "0",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "99",
+		INVENTLOCATIONTYPENAME: "Standard"}
+		,
+		{INVENTLOCATIONID: "90",
+		NAME: "Direct delivery",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "0",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145104",
+		INVENTLOCATIONTYPE: "0",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "0",
+		INVENTLOCATIONIDTRANSIT: "99",
+		INVENTLOCATIONTYPENAME: "Standard"}
+		,
+		{INVENTLOCATIONID: "99",
+		NAME: "Transit",
+		INVENTLOCATIONIDQUARANTINE: "",
+		VENDACCOUNT: "",
+		INVENTSITEID: "HQ",
+		MANUAL: "1",
+		EMPTYPALLETLOCATION: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637145105",
+		INVENTLOCATIONTYPE: "2",
+		MAXPICKINGROUTEVOLUME: "0.0000000000000000",
+		PICKINGLINETIME: "0",
+		WMSLOCATIONIDDEFAULTRECEIPT: "",
+		WMSLOCATIONIDDEFAULTISSUE: "",
+		REQCALENDARID: "",
+		WMSAISLENAMEACTIVE: "0",
+		WMSRACKNAMEACTIVE: "0",
+		WMSRACKFORMAT: "",
+		WMSLEVELNAMEACTIVE: "0",
+		WMSLEVELFORMAT: "",
+		WMSPOSITIONNAMEACTIVE: "0",
+		WMSPOSITIONFORMAT: "",
+		USEWMSORDERS: "0",
+		INVENTLOCATIONIDREQMAIN: "",
+		REQREFILL: "0",
+		INVENTLOCATIONLEVEL: "1",
+		INVENTLOCATIONIDTRANSIT: "",
+		INVENTLOCATIONTYPENAME: "Transit"}
+		]  });
+		logon.RWC_SITE_DATASET = new kendo.data.DataSource({ data: [
+		{SITEID: "HQ",
+		NAME: "Headquarters",
+		TIMEZONE: "79",
+		ORDERENTRYDEADLINEGROUPID: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637144832"}
+		,
+		{SITEID: "S1",
+		NAME: "Sales office 1",
+		TIMEZONE: "79",
+		ORDERENTRYDEADLINEGROUPID: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637144833"}
+		,
+		{SITEID: "S2",
+		NAME: "Sales office 2",
+		TIMEZONE: "58",
+		ORDERENTRYDEADLINEGROUPID: "",
+		DATAAREAID: "tst",
+		RECVERSION: "1",
+		RECID: "5637144834"}
+		]  });
+		logon.RWC_PromptControl1_USER_NAME_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Gvr.LOGGED_IN = N
+			// Line#  2 : SendValidation ( v_UserId ) 
+			// Line#  3 : If Mvr.v_UserId.STATUS <> (Alpha) Y And Mvr.v_UserId.ENABLE = (Numeric) 0
+			// Line#  4 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  5 : CancelDefault( )
+			// Line#  6 : ExitEvent( )
+			// Line#  7 : Else If Mvr.v_UserId.ENABLE = (Numeric) 1
+			// Line#  8 : Var.USERNAME = Mvr.v_UserId.NAME
+			// Line#  9 : Var.COMPANY_ID = Mvr.v_UserId.COMPANY_ID
+			// Line#  10 : Var.USERID = Mvr.v_UserId.USERID
+			// Line#  11 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		logon.USER_NAME = new cdt.prompt("USER_NAME", // Name
+				"Username" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"USERID", // Variable
+				logon.RWC_PromptControl1_USER_NAME_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		logon.RWC_PromptControl1.addPrompt(logon.USER_NAME);
+
+		logon.RWC_PromptControl1_PASSWORD_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Gvr.PASSWORD = Var.PASSWORD
+			// Line#  2 : Gvr.USERID = Var.USERID
+			// Line#  3 : Gvr.COMPANY_ID = Var.COMPANY_ID
+			// Line#  4 : Var.PRINT_NAME = @Welcome {Var.USERNAME}
+			// Line#  5 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  6 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Site ) 
+			// Line#  7 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Site ) 
+			// Line#  8 : If Var.ROWCNT < (Numeric) 1
+			// Line#  9 : StatusWindow ( @Info , @Error no site records found. , 2 ) 
+			// Line#  10 : CloseForm( )
+			// Line#  11 : CancelDefault( )
+			// Line#  12 : ExitEvent( )
+			// Line#  13 : End If
+			// Line#  14 : StatusWindow ( @Welcome , Var.PRINT_DISP , 2 ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		logon.PASSWORD = new cdt.prompt("PASSWORD", // Name
+				"Password" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				false, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"PASSWORD", // Variable
+				logon.RWC_PromptControl1_PASSWORD_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Password
+				);
+
+		logon.RWC_PromptControl1.addPrompt(logon.PASSWORD);
+
+		logon.RWC_PromptControl1_Site_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.SITE = Dsv.RWC_SITE_DATASET.SITEID
+			// Line#  2 : Gvr.SITE = Var.SITE
+			// Line#  3 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Warehouse ) 
+			// Line#  4 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Warehouse ) 
+			// Line#  5 : If Var.ROWCNT < (Numeric) 1
+			// Line#  6 : StatusWindow ( @Info , @No warehouse records found. , 2 ) 
+			// Line#  7 : ReturnToPrompt ( RWC_PromptControl1 , Site , False , False ) 
+			// Line#  8 : CancelDefault( )
+			// Line#  9 : ExitEvent( )
+			// Line#  10 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		logon.RWC_PromptControl1LP0 = new cdt.prompt( "Site", // name 
+			"Site", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			null, // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			logon.RWC_PromptControl1_Site_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		logon.RWC_PromptControl1.addPrompt(logon.RWC_PromptControl1LP0);
+
+
+		logon.RWC_PromptControl1LP0_template = "<li data-uid='#= data.uid #'><a>";
+		logon.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 30%;text-align:right;'>Site:&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 30%;width: 24%;text-align:left;'>#= data.SITEID #&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP0_template += "<br/>";
+		logon.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 30%;text-align:right;'>Name:&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 30%;width: 48%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP0_template += "<br /></a></li>";
+		logon.RWC_PromptControl1LP0.setLayout( kendo.template(logon.RWC_PromptControl1LP0_template, { useWithBlock: false } ) );
+
+		logon.RWC_PromptControl1LP0.setDataSource(logon.RWC_SITE_DATASET);
+		logon.RWC_PromptControl1_Warehouse_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.WAREHOUSE = Dsv.RWC_WAREHOUSE_DATASET.INVENTLOCATIONID
+			// Line#  2 : Gvr.WAREHOUSE = Var.WAREHOUSE
+			// Line#  3 : Var.LOGGED_IN = Y
+			// Line#  4 : CancelDefault( )
+			// Line#  5 : CloseForm( )
+			logon.viewModel.logIn(cdt.VariableManager.getLocalVariable("USERID"));
+			showMenu();
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		logon.RWC_PromptControl1LP1 = new cdt.prompt( "Warehouse", // name 
+			"Warehouse", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			null, // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			logon.RWC_PromptControl1_Warehouse_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		logon.RWC_PromptControl1.addPrompt(logon.RWC_PromptControl1LP1);
+
+
+		logon.RWC_PromptControl1LP1_template = "<li data-uid='#= data.uid #'><a>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 33%;text-align:right;'>Warehouse:&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 39%;text-align:left;'>#= data.INVENTLOCATIONID #&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<br/>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Name:&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 61%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<br/>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Type:&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 45%;text-align:left;'>#= data.INVENTLOCATIONTYPENAME #&nbsp;&nbsp;</span>";
+		logon.RWC_PromptControl1LP1_template += "<br /></a></li>";
+		logon.RWC_PromptControl1LP1.setLayout( kendo.template(logon.RWC_PromptControl1LP1_template, { useWithBlock: false } ) );
+
+		logon.RWC_PromptControl1LP1.setDataSource(logon.RWC_WAREHOUSE_DATASET);
+		logon.viewModel = new cdt.viewModel( "logon",logon.RWC_PromptControl1,"main");
+</script>
+	        <header data-role='header'>
+	            <div data-role='navbar'>
+	                <div data-role='view-title'></div>
+	                <a data-role='button' data-align='right' data-rel='popover' href='#popupMenu' data-icon='settings'></a>
+	                <a data-bind='visible: isMenuVisible' data-role='button' data-align='left' data-click='showMenu' data-icon='organize' ></a>
+	            </div>
+	        </header>
+	        <div data-bind='invisible: isLoggedIn'>
+	            <div data-bind='visible: promptControl.isCurrentPromptList' >
+	                <ul id='logon-listControl' data-role='listview' ></ul>
+	            </div>
+	            <div id='logon-historyScroller' data-role='scroller' class='historyScroller' >
+	                <ul id='logon-historyList' data-role='listview' data-template='historyTemplate' data-bind='visible: promptControl.isHistoryVisible' style='margin-bottom: 20px; margin-left: 0px;'></ul>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptText' >
+	                <div class='promptControlLeft' >
+	                    <div><label for='logon-textInput' data-bind='text: promptControl.textControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='logon-textInput' type='text' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.textControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div><img src='images/barcode.png' style='width:32px; height:32px;' onclick='showScanner()' /></div>
+	                    <div><img src='images/reset.png' id='Img1' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptPassword'>
+	                <div class='promptControlLeft' >
+	                    <div><label for='logon-passwordInput' data-bind='text: promptControl.passwordControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='logon-passwordInput' type='password' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.passwordControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div style='height:46px'></div>
+	                    <div><img src='images/reset.png' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	        </div>
+	
+
+	        <div data-bind='visible: isLoggedIn'>
+	            <!--<img data-bind='attr: { src: customerLogo }' class='overviewLogo' />-->
+	            <div id='overview'>
+	                <div data-role='header'>
+	                    <div data-role='navbar'>Overview</div>
+	                </div>
+	                <span style='font:x-large;margin-right:5px;'>User:</span><span style='font:large' data-bind='text: currentUser'></span>
+	                <div style='width:50px;margin-left:auto;margin-right:auto;margin-top:20px;'>
+	                    <a  data-role='button' data-click='logon.viewModel.logOut'>Logout</a>
+	                </div>
+	            </div>
+	            <img data-bind='attr: { src: radleyLogo }' class='overviewLogo' />
+	        </div>
+	
+
+	        <div data-role='popover' id='popupMenu' data-popup='{'height': 280, 'width': 280}'>
+	            <div data-role='view' data-title='Options'>
+	                <div data-role='header'>
+	                    <div data-role='navbar'>
+	                        <span data-role='view-title'></span>
+	                        <a data-role='button' data-align='right' data-click='closeParentPopover'>Close</a>
+	                    </div>
+	                </div>
+	                    <ul data-role='listview' data-click='cdt.Application.onPopupItemClick'>
+	                    <li data-icon='refresh'><a data-role='listview-link' id='resetPopup'>Reset</a></li>
+	                    <li  data-icon='reply'><a data-role='listview-link' id='previousPopup' >Previous</a></li>
+	                    <li  data-icon='action'><a data-role='listview-link' id='abortPopup' >Abort</a></li>
+	                    <li></li>
+	                    <li data-icon='settings'><a data-role='listview-link' data-rel='modalview' href='#configurationModalView' id='configurationOpenButton'>Configuration</a></li>
+	                </ul>
+	            </div>
+	        </div>
+</div>
+</body>
+</html>

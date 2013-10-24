@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<div id='frmLoadShipment' data-role='view' data-title='Load Shipment' data-show='frmLoadShipment.viewModel.initialize' data-model='frmLoadShipment.viewModel' >
+<script>
+	var frmLoadShipment = frmLoadShipment || {};
+		frmLoadShipment.RWC_ShipmentDetail = new kendo.data.DataSource({ data: [{}]  });
+		frmLoadShipment.RWC_ShipmentOverview = new kendo.data.DataSource({ data: [{}]  });
+		frmLoadShipment.RWC_Shipment = new kendo.data.DataSource({ data: [{}]  });
+		frmLoadShipment.RWC_PromptControl1 = new cdt.promptControl('Reset','Previous', 'Abort', 'Options' , 'frmLoadShipment' );
+		frmLoadShipment.RWC_PromptControl1_Shipment_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Shipment_Overview ) 
+			// Line#  2 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Shipment_Overview ) 
+			// Line#  3 : If Var.ROWCNT < (Numeric) 1
+			// Line#  4 : StatusWindow ( @Info , @Error information not valid. , 2 ) 
+			// Line#  5 : CloseForm( )
+			// Line#  6 : End If
+			// Line#  7 : ShowPrompt ( RWC_PromptControl1 , Shipment_Overview ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmLoadShipment.RWC_PromptControl1_Shipment_OnClick = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+		try{
+			
+			
+			// Line#  1 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Shipments ) 
+			// Line#  2 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Shipments ) 
+			// Line#  3 : If Var.ROWCNT < (Numeric) 1
+			// Line#  4 : StatusWindow ( @Info , @No shipment found closing form. , 2 ) 
+			// Line#  5 : CloseForm( )
+			// Line#  6 : End If
+			// Line#  7 : ShowPrompt ( RWC_PromptControl1 , Shipments ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.Shipment = new cdt.prompt("Shipment", // Name
+				"Shipment Number" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				true, // ShowButton
+				"Load Shipments Overview", // Button Resource ID
+				frmLoadShipment.Shipment_Click , // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"v_Shipment", // Validation
+				false, // ValidIfNotEmpty
+				"SHIPMENT_ID", // Variable
+				frmLoadShipment.RWC_PromptControl1_Shipment_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.Shipment);
+
+		frmLoadShipment.RWC_PromptControl1_Shipments_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.SHIPMENT_ID = Dsv.RWC_Shipment.SHIPMENT_ID
+			// Line#  2 : SetHistoryTextEx ( RWC_PromptControl1 , Shipment , @Shipment , Var.SHIPMENT_ID , True ) 
+			// Line#  3 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Shipment_Overview ) 
+			// Line#  4 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Shipment_Overview ) 
+			// Line#  5 : If Var.ROWCNT < (Numeric) 1
+			// Line#  6 : StatusWindow ( @Info , @Error information not valid. , 2 ) 
+			// Line#  7 : CloseForm( )
+			// Line#  8 : End If
+			// Line#  9 : ShowPrompt ( RWC_PromptControl1 , Shipment_Overview ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.RWC_PromptControl1LP0 = new cdt.prompt( "Shipments", // name 
+			"Shipments", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			null, // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmLoadShipment.RWC_PromptControl1_Shipments_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.RWC_PromptControl1LP0);
+
+
+		frmLoadShipment.RWC_PromptControl1LP0_template = "<li data-uid='#= data.uid #'><a>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 36%;text-align:right;'>Shipment:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.SHIPMENT_ID #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Site:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.SITE #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 36%;text-align:right;'>Warehouse:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.WAREHOUSE #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Location:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.LOCATION #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP0_template += "<br /></a></li>";
+		frmLoadShipment.RWC_PromptControl1LP0.setLayout( kendo.template(frmLoadShipment.RWC_PromptControl1LP0_template, { useWithBlock: false } ) );
+
+		frmLoadShipment.RWC_PromptControl1LP0.setDataSource(frmLoadShipment.RWC_Shipment);
+		frmLoadShipment.RWC_PromptControl1_Shipment_Overview_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.SHIPMENT_ID = Dsv.RWC_ShipmentOverview.SHIPMENT_ID
+			// Line#  2 : Var.DIM_ID = Dsv.RWC_ShipmentOverview.DIM_ID
+			// Line#  3 : Var.Pallet = Dsv.RWC_ShipmentOverview.WMSPALLETID
+			// Line#  4 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Shipment_Details ) 
+			// Line#  5 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Shipment_Details ) 
+			// Line#  6 : If Var.ROWCNT < (Numeric) 1
+			// Line#  7 : StatusWindow ( @Info , @Error information not valid. , 2 ) 
+			// Line#  8 : CloseForm( )
+			// Line#  9 : End If
+			// Line#  10 : If Var.Pallet <> (Alpha) ""
+			// Line#  11 : ShowPrompt ( RWC_PromptControl1 , Pallet ) 
+			// Line#  12 : CancelDefault( )
+			// Line#  13 : ExitEvent( )
+			// Line#  14 : End If
+			// Line#  15 : ShowPrompt ( RWC_PromptControl1 , Shipment_Details ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.RWC_PromptControl1LP1 = new cdt.prompt( "Shipment_Overview", // name 
+			"Shipment Overview", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			null, // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmLoadShipment.RWC_PromptControl1_Shipment_Overview_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.RWC_PromptControl1LP1);
+
+
+		frmLoadShipment.RWC_PromptControl1LP1_template = "<li data-uid='#= data.uid #'><a>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Shipment:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.SHIPMENT_ID #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Site:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 30%;text-align:left;'>#= data.SITE #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 36%;text-align:right;'>Warehouse:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 30%;text-align:left;'>#= data.WAREHOUSE #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Location:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 36%;text-align:left;'>#= data.LOCATION #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 33%;text-align:right;'>Pallet Id:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.WMSPALLETID #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>QTY:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 45%;text-align:left;'>#= data.QTY #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 6%;width: 30%;text-align:right;'>Line:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 30%;text-align:left;'>#= data.LINES #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP1_template += "<br /></a></li>";
+		frmLoadShipment.RWC_PromptControl1LP1.setLayout( kendo.template(frmLoadShipment.RWC_PromptControl1LP1_template, { useWithBlock: false } ) );
+
+		frmLoadShipment.RWC_PromptControl1LP1.setDataSource(frmLoadShipment.RWC_ShipmentOverview);
+		frmLoadShipment.RWC_PromptControl1_Shipment_Details_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.PALLET_ID = 
+			// Line#  2 : Var.REC_ID = Dsv.RWC_ShipmentDetail.REC_ID
+			// Line#  3 : Var.REC_VERSION = Dsv.RWC_ShipmentDetail.REC_VERSION
+			// Line#  4 : Var.ORDER_ID = Dsv.RWC_ShipmentDetail.ORDER_ID
+			// Line#  5 : Var.ITEM = Dsv.RWC_ShipmentDetail.ITEM_ID
+			// Line#  6 : Var.STOREQTY = Dsv.RWC_ShipmentDetail.QTY
+			// Line#  7 : ShowPrompt ( RWC_PromptControl1 , Item ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.RWC_PromptControl1LP2 = new cdt.prompt( "Shipment_Details", // name 
+			"Shipment Detail", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			null, // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmLoadShipment.RWC_PromptControl1_Shipment_Details_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.RWC_PromptControl1LP2);
+
+
+		frmLoadShipment.RWC_PromptControl1LP2_template = "<li data-uid='#= data.uid #'><a>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 33%;text-align:right;'>Trans No:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 45%;text-align:left;'>#= data.NUMBER #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Item Id:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 45%;text-align:left;'>#= data.ITEM_ID #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<br/>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>QTY:&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 36%;text-align:left;'>#= data.QTY #&nbsp;&nbsp;</span>";
+		frmLoadShipment.RWC_PromptControl1LP2_template += "<br /></a></li>";
+		frmLoadShipment.RWC_PromptControl1LP2.setLayout( kendo.template(frmLoadShipment.RWC_PromptControl1LP2_template, { useWithBlock: false } ) );
+
+		frmLoadShipment.RWC_PromptControl1LP2.setDataSource(frmLoadShipment.RWC_ShipmentDetail);
+		frmLoadShipment.RWC_PromptControl1_Pallet_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.Pallet <> (Alpha) Var.PALLET_ID
+			// Line#  2 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  3 : CancelDefault( )
+			// Line#  4 : ExitEvent( )
+			// Line#  5 : End If
+			// Line#  6 : ShowPrompt ( RWC_PromptControl1 , Confirm ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.Pallet = new cdt.prompt("Pallet", // Name
+				"Pallet Id:" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"PALLET_ID", // Variable
+				frmLoadShipment.RWC_PromptControl1_Pallet_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.Pallet);
+
+		frmLoadShipment.RWC_PromptControl1_Item_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.ITEM <> (Alpha) Var.ITEM_ID
+			// Line#  2 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  3 : CancelDefault( )
+			// Line#  4 : ExitEvent( )
+			// Line#  5 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.Item = new cdt.prompt("Item", // Name
+				"Item Number" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"ITEM_ID", // Variable
+				frmLoadShipment.RWC_PromptControl1_Item_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.Item);
+
+		frmLoadShipment.RWC_PromptControl1_QTY_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.QTY <= (Numeric) 0
+			// Line#  2 : StatusWindow ( @Info , @Quantity must be greater than 0 , 2 ) 
+			// Line#  3 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  4 : CancelDefault( )
+			// Line#  5 : ExitEvent( )
+			// Line#  6 : End If
+			// Line#  7 : If Var.QTY > (Numeric) Var.STOREQTY Or Var.QTY = (Numeric) 0
+			// Line#  8 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  9 : CancelDefault( )
+			// Line#  10 : ExitEvent( )
+			// Line#  11 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.QTY = new cdt.prompt("QTY", // Name
+				"Quantity" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				false, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"QTY", // Variable
+				frmLoadShipment.RWC_PromptControl1_QTY_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.QTY);
+
+		frmLoadShipment.RWC_PromptControl1_Confirm_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.CONFIRM = Y
+			// Line#  2 : SendTransaction ( t_Load_Shipment ) 
+			// Line#  3 : StatusWindow ( @Success , @Transaction Sent! , 2 ) 
+			// Line#  4 : ResetForm( )
+			// Line#  5 : UpdateData ( Get ) 
+			// Line#  6 : Else If Var.CONFIRM = (Alpha) N
+			// Line#  7 : ResetForm( )
+			// Line#  8 : UpdateData ( Get ) 
+			// Line#  9 : Else
+			// Line#  10 : StatusWindow ( Error , Answer must be Y or N. , 2 ) 
+			// Line#  11 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  12 : CancelDefault( )
+			// Line#  13 : ExitEvent( )
+			// Line#  14 : End If
+			shouldContinue = false;
+			cdt.MessageBox.show(cdt.ResourceManager.getString("Success"),cdt.ResourceManager.getString("Transaction Sent!"),cdt.MessageBoxButton.Ok,null);
+			frmLoadShipment.viewModel.promptControl.reset( );
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmLoadShipment.Confirm = new cdt.prompt("Confirm", // Name
+				"Confirm?" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"CONFIRM", // Variable
+				frmLoadShipment.RWC_PromptControl1_Confirm_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmLoadShipment.RWC_PromptControl1.addPrompt(frmLoadShipment.Confirm);
+
+		frmLoadShipment.viewModel = new cdt.viewModel( "frmLoadShipment",frmLoadShipment.RWC_PromptControl1,"frmLoadShipment");
+</script>
+	        <header data-role='header'>
+	            <div data-role='navbar'>
+	                <div data-role='view-title'></div>
+	                <a data-role='button' data-align='right' data-rel='popover' href='#popupMenu' data-icon='settings'></a>
+	                <a data-bind='visible: isMenuVisible' data-role='button' data-align='left' data-click='showMenu' data-icon='organize' ></a>
+	            </div>
+	        </header>
+	        <div data-bind='invisible: isLoggedIn'>
+	            <div data-bind='visible: promptControl.isCurrentPromptList' >
+	                <ul id='frmLoadShipment-listControl' data-role='listview' ></ul>
+	            </div>
+	            <div id='frmLoadShipment-historyScroller' data-role='scroller' class='historyScroller' >
+	                <ul id='frmLoadShipment-historyList' data-role='listview' data-template='historyTemplate' data-bind='visible: promptControl.isHistoryVisible' style='margin-bottom: 20px; margin-left: 0px;'></ul>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptText' >
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmLoadShipment-textInput' data-bind='text: promptControl.textControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmLoadShipment-textInput' type='text' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.textControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div><img src='images/barcode.png' style='width:32px; height:32px;' onclick='showScanner()' /></div>
+	                    <div><img src='images/reset.png' id='Img1' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptPassword'>
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmLoadShipment-passwordInput' data-bind='text: promptControl.passwordControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmLoadShipment-passwordInput' type='password' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.passwordControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div style='height:46px'></div>
+	                    <div><img src='images/reset.png' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	        </div>
+</div>
+</body>
+</html>

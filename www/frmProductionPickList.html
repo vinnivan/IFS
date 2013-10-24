@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<div id='frmProductionPickList' data-role='view' data-title='Production Picking List' data-show='frmProductionPickList.viewModel.initialize' data-model='frmProductionPickList.viewModel' >
+<script>
+	var frmProductionPickList = frmProductionPickList || {};
+		frmProductionPickList.RWC_ProductionPickingList = new kendo.data.DataSource({ data: [{}]  });
+		frmProductionPickList.RWC_ProductionList = new kendo.data.DataSource({ data: [{}]  });
+		frmProductionPickList.RWC_PromptControl1 = new cdt.promptControl('Reset','Previous', 'Abort', 'Options' , 'frmProductionPickList' );
+		frmProductionPickList.RWC_PromptControl1_Production_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.PRODID = Dsv.RWC_ProductionList.PRODID
+			// Line#  2 : Var.PRODUCTIONORDER = Dsv.RWC_ProductionList.PRODID
+			// Line#  3 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Pick_Production_list ) 
+			// Line#  4 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Pick_Production_list ) 
+			// Line#  5 : If Var.ROWCNT < (Numeric) 1
+			// Line#  6 : SendValidation ( tv_Production_Picking_List ) 
+			// Line#  7 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Pick_Production_list ) 
+			// Line#  8 : Var.ROWCNT2 = ListPromptGetRowCount ( RWC_PromptControl1 , Pick_Production_list ) 
+			// Line#  9 : If Var.ROWCNT2 < (Numeric) 1
+			// Line#  10 : StatusWindow ( @Info , @No items found for picking , 2 ) 
+			// Line#  11 : CloseForm( )
+			// Line#  12 : End If
+			// Line#  13 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmProductionPickList.RWC_PromptControl1_Production_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : UpdateData ( Get ) 
+			// Line#  4 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  5 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  6 : If Var.ROWCNT < (Numeric) 1
+			// Line#  7 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  8 : CloseForm( )
+			// Line#  9 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmProductionPickList.RWC_PromptControl1LP0 = new cdt.prompt( "Production", // name 
+			"Select Production", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmProductionPickList.RWC_PromptControl1_Production_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmProductionPickList.RWC_PromptControl1_Production_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmProductionPickList.RWC_PromptControl1.addPrompt(frmProductionPickList.RWC_PromptControl1LP0);
+
+
+		frmProductionPickList.RWC_PromptControl1LP0_template = "<li data-uid='#= data.uid #'><a>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Prod Id:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 36%;text-align:left;'>#= data.PRODID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Item Id:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 36%;text-align:left;'>#= data.ITEMID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 33%;text-align:right;'>Item Name:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 45%;text-align:left;'>#= data.NAME #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP0_template += "<br /></a></li>";
+		frmProductionPickList.RWC_PromptControl1LP0.setLayout( kendo.template(frmProductionPickList.RWC_PromptControl1LP0_template, { useWithBlock: false } ) );
+
+		frmProductionPickList.RWC_PromptControl1LP0.setDataSource(frmProductionPickList.RWC_ProductionList);
+		frmProductionPickList.RWC_PromptControl1_Pick_Production_list_Select = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : Var.REC_ID = Dsv.RWC_ProductionPickingList.RECID
+			// Line#  2 : Var.PROD_JOURNAL_ID = Dsv.RWC_ProductionPickingList.JOURNALID
+			// Line#  3 : Var.ITEM_ID = Dsv.RWC_ProductionPickingList.ITEMID
+			// Line#  4 : Var.WAREHOUSE = Dsv.RWC_ProductionPickingList.INVENTLOCATIONID
+			// Line#  5 : Var.SITE = Dsv.RWC_ProductionPickingList.INVENTSITEID
+			// Line#  6 : Var.LOCATION = Dsv.RWC_ProductionPickingList.WMSLOCATIONID
+			// Line#  7 : Var.CONFIGURATION = Dsv.RWC_ProductionPickingList.CONFIGID
+			// Line#  8 : Var.COLOR = Dsv.RWC_ProductionPickingList.INVENTCOLORID
+			// Line#  9 : Var.SIZE = Dsv.RWC_ProductionPickingList.INVENTSIZEID
+			// Line#  10 : Var.SERIAL_NO = Dsv.RWC_ProductionPickingList.INVENTSERIALID
+			// Line#  11 : Var.BATCH_NUMBER = Dsv.RWC_ProductionPickingList.INVENTBATCHID
+			// Line#  12 : Var.PALLET_ID = Dsv.RWC_ProductionPickingList.WMSPALLETID
+			// Line#  13 : Var.QTY_NEEDED = Dsv.RWC_ProductionPickingList.INVENTCONSUMP
+			// Line#  14 : SetHistoryTextEx ( RWC_PromptControl1 , Production , @Site , Var.SITE , True ) 
+			// Line#  15 : If Var.PALLET_ID <> (Alpha) ""
+			// Line#  16 : Var.PRINT_NAME = @Pallet Id: {Var.PALLET_ID}
+			// Line#  17 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  18 : SetDetailText ( RWC_PromptControl1 , Blank , Var.PRINT_DISP , True ) 
+			// Line#  19 : End If
+			// Line#  20 : If Var.LOCATION <> (Alpha) ""
+			// Line#  21 : Var.PRINT_NAME = @Location: {Var.LOCATION}
+			// Line#  22 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  23 : If Var.PALLET_ID <> (Alpha) ""
+			// Line#  24 : SetDetailText ( RWC_PromptControl1 , Production , Var.PRINT_DISP , False ) 
+			// Line#  25 : Else
+			// Line#  26 : SetDetailText ( RWC_PromptControl1 , Production , Var.PRINT_DISP , True ) 
+			// Line#  27 : End If
+			// Line#  28 : End If
+			// Line#  29 : If Var.WAREHOUSE <> (Alpha) ""
+			// Line#  30 : Var.PRINT_NAME = @Warehouse: {Var.WAREHOUSE}
+			// Line#  31 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  32 : If Var.LOCATION <> (Alpha) ""
+			// Line#  33 : SetDetailText ( RWC_PromptControl1 , Production , Var.PRINT_DISP , False ) 
+			// Line#  34 : Else
+			// Line#  35 : SetDetailText ( RWC_PromptControl1 , Production , Var.PRINT_DISP , True ) 
+			// Line#  36 : End If
+			// Line#  37 : End If
+			// Line#  38 : SetHistoryTextEx ( RWC_PromptControl1 , Pick_Production_list , @Item Id , Var.ITEM_ID , True ) 
+			// Line#  39 : If Var.SERIAL_NO <> (Alpha) ""
+			// Line#  40 : Var.PRINT_NAME = @Serial No: {Var.SERIAL_NO}
+			// Line#  41 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  42 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , True ) 
+			// Line#  43 : End If
+			// Line#  44 : If Var.BATCH_NUMBER <> (Alpha) ""
+			// Line#  45 : Var.PRINT_NAME = @Batch No: {Var.BATCH_NUMBER}
+			// Line#  46 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  47 : If Var.SERIAL_NO <> (Alpha) ""
+			// Line#  48 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , False ) 
+			// Line#  49 : Else
+			// Line#  50 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , True ) 
+			// Line#  51 : End If
+			// Line#  52 : End If
+			// Line#  53 : If Var.SIZE <> (Alpha) ""
+			// Line#  54 : Var.PRINT_NAME = @Size: {Var.SERIAL_NO}
+			// Line#  55 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  56 : If Var.BATCH_NUMBER <> (Alpha) ""
+			// Line#  57 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , False ) 
+			// Line#  58 : Else
+			// Line#  59 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , True ) 
+			// Line#  60 : End If
+			// Line#  61 : End If
+			// Line#  62 : If Var.CONFIGURATION <> (Alpha) ""
+			// Line#  63 : Var.PRINT_NAME = @Configuration: {Var.CONFIGURATION}
+			// Line#  64 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  65 : If Var.SIZE <> (Alpha) ""
+			// Line#  66 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , False ) 
+			// Line#  67 : Else
+			// Line#  68 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , True ) 
+			// Line#  69 : End If
+			// Line#  70 : End If
+			// Line#  71 : If Var.COLOR <> (Alpha) ""
+			// Line#  72 : Var.PRINT_NAME = @Color: {Var.COLOR}
+			// Line#  73 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  74 : If Var.CONFIGURATION <> (Alpha) ""
+			// Line#  75 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , False ) 
+			// Line#  76 : Else
+			// Line#  77 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , True ) 
+			// Line#  78 : End If
+			// Line#  79 : End If
+			// Line#  80 : Var.PRINT_NAME = @Qty Needed: {Var.QTY_NEEDED}
+			// Line#  81 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_NAME ) 
+			// Line#  82 : SetDetailText ( RWC_PromptControl1 , Pick_Production_list , Var.PRINT_DISP , False ) 
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmProductionPickList.RWC_PromptControl1_Pick_Production_list_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : UpdateData ( Get ) 
+			// Line#  4 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  5 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  6 : If Var.ROWCNT < (Numeric) 1
+			// Line#  7 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  8 : CloseForm( )
+			// Line#  9 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmProductionPickList.RWC_PromptControl1LP1 = new cdt.prompt( "Pick_Production_list", // name 
+			"Select item to pick", // Caption Resource ID
+			null, // default text 
+			true, // ResetEnabled
+			true, // PreviousEnabled
+			true, // AbortEnabled
+			false, // ShowButton
+			"", // Button Caption
+			null, // ButtonClick Delegate
+			false, // ShowButton2
+			"", // Button2 Caption
+			null,  // Button2Click Delegate
+			false, // ShowButton3
+			"", // Button3 Caption
+			null,  // Button3Click Delegate
+			frmProductionPickList.RWC_PromptControl1_Pick_Production_list_ResetClick , // ResetClick Delegate
+			null, // PreviousClick Delegate
+			null, // AbortClick Delegate
+
+			false, // Skipable
+			false, // Skip
+			false, // UseHistory
+			"", // Skip Default
+			false, // toUpper
+			null,  // validation
+			false, // validIfEmpty
+			null, // variable
+			frmProductionPickList.RWC_PromptControl1_Pick_Production_list_Select , // SelectEvent Delegate
+			cdt.PromptControlType.List
+			);
+		frmProductionPickList.RWC_PromptControl1.addPrompt(frmProductionPickList.RWC_PromptControl1LP1);
+
+
+		frmProductionPickList.RWC_PromptControl1LP1_template = "<li data-uid='#= data.uid #'><a>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Row:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 36%;width: 9%;text-align:left;'>#= data._CURRENT #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 48%;width: 9%;text-align:left;'>Of&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 61%;width: 9%;text-align:left;'>#= data._COUNT #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Item Id:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.ITEMID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Config:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.CONFIGID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Color:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.INVENTCOLORID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Size:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.INVENTSIZEID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Serial:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 42%;text-align:left;'>#= data.INVENTSERIALID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Batch No:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 42%;text-align:left;'>#= data.INVENTBATCHID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Site:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.INVENTSITEID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 0%;width: 33%;text-align:right;'>Warehouse:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.INVENTLOCATIONID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Location:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.WMSLOCATIONID #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br/>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 3%;width: 30%;text-align:right;'>Pick QTY:&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<span style='position:absolute;margin:0;white-space:nowrap;left: 33%;width: 30%;text-align:left;'>#= data.INVENTCONSUMP #&nbsp;&nbsp;</span>";
+		frmProductionPickList.RWC_PromptControl1LP1_template += "<br /></a></li>";
+		frmProductionPickList.RWC_PromptControl1LP1.setLayout( kendo.template(frmProductionPickList.RWC_PromptControl1LP1_template, { useWithBlock: false } ) );
+
+		frmProductionPickList.RWC_PromptControl1LP1.setDataSource(frmProductionPickList.RWC_ProductionPickingList);
+		frmProductionPickList.RWC_PromptControl1_QTY_Pick_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.QTY <= (Numeric) 0
+			// Line#  2 : StatusWindow ( @Info , @Quantity must be greater than 0 , 2 ) 
+			// Line#  3 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  4 : CancelDefault( )
+			// Line#  5 : ExitEvent( )
+			// Line#  6 : End If
+			// Line#  7 : If Mvr.v_Item_In_Stock.AVAILABELE_WITH_RESERVE <= (Numeric) 0
+			// Line#  8 : StatusWindow ( @Info , @No quantity available , 2 ) 
+			// Line#  9 : CancelDefault( )
+			// Line#  10 : ExitEvent( )
+			// Line#  11 : End If
+			// Line#  12 : If Var.QTY > (Numeric) Var.QTY_NEEDED
+			// Line#  13 : Var.PRINT_QTY = @Quantity must be less than {Var.QTY_NEEDED}
+			// Line#  14 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_QTY ) 
+			// Line#  15 : StatusWindow ( @Info , Var.PRINT_DISP , 2 ) 
+			// Line#  16 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  17 : CancelDefault( )
+			// Line#  18 : ExitEvent( )
+			// Line#  19 : Else If Var.QTY > (Numeric) Mvr.v_Item_In_Stock.AVAILABELE_WITH_RESERVE
+			// Line#  20 : Var.PRINT_QTY = @Quantity must be less than available quantity {AVAILABELE_WITH_RESERVE}
+			// Line#  21 : Var.PRINT_DISP = BuildTemplateString ( Var.PRINT_QTY ) 
+			// Line#  22 : StatusWindow ( @Info , Var.PRINT_DISP , 2 ) 
+			// Line#  23 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  24 : CancelDefault( )
+			// Line#  25 : ExitEvent( )
+			// Line#  26 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmProductionPickList.RWC_PromptControl1_QTY_Pick_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : UpdateData ( Get ) 
+			// Line#  4 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  5 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  6 : If Var.ROWCNT < (Numeric) 1
+			// Line#  7 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  8 : CloseForm( )
+			// Line#  9 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmProductionPickList.QTY_Pick = new cdt.prompt("QTY_Pick", // Name
+				"Picked Quantity" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				false, // ToUpper
+				"v_Item_In_Stock", // Validation
+				false, // ValidIfNotEmpty
+				"QTY", // Variable
+				frmProductionPickList.RWC_PromptControl1_QTY_Pick_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmProductionPickList.RWC_PromptControl1.addPrompt(frmProductionPickList.QTY_Pick);
+
+		frmProductionPickList.RWC_PromptControl1_Confirm_ValidEvent = function(_value, _completeAction) {
+			
+			var shouldContinue = true;
+			
+		try{
+			
+			// Line#  1 : If Var.CONFIRM = (Alpha) Y
+			// Line#  2 : SendTransaction ( t_Post_Production_Picking_List ) 
+			// Line#  3 : StatusWindow ( @Success , @Transaction Sent! , 2 ) 
+			// Line#  4 : CancelDefault( )
+			// Line#  5 : ResetForm( )
+			// Line#  6 : UpdateData ( Get ) 
+			// Line#  7 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  8 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  9 : If Var.ROWCNT < (Numeric) 1
+			// Line#  10 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  11 : CloseForm( )
+			// Line#  12 : End If
+			// Line#  13 : Else If Var.CONFIRM = (Alpha) N
+			// Line#  14 : CancelDefault( )
+			// Line#  15 : ResetForm( )
+			// Line#  16 : UpdateData ( Get ) 
+			// Line#  17 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  18 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  19 : If Var.ROWCNT < (Numeric) 1
+			// Line#  20 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  21 : CloseForm( )
+			// Line#  22 : End If
+			// Line#  23 : Else
+			// Line#  24 : StatusWindow ( Error , Answer must be Y or N. , 2 ) 
+			// Line#  25 : PromptIsValid ( RWC_PromptControl1 , False ) 
+			// Line#  26 : CancelDefault( )
+			// Line#  27 : ExitEvent( )
+			// Line#  28 : End If
+			shouldContinue = false;
+			cdt.MessageBox.show(cdt.ResourceManager.getString("Success"),cdt.ResourceManager.getString("Transaction Sent!"),cdt.MessageBoxButton.Ok,null);
+			frmProductionPickList.viewModel.promptControl.reset( );
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			frmProductionPickList.RWC_PromptControl1_Confirm_ResetClick = function(_value, _completeAction) {
+			var shouldContinue = true;
+			
+		try{
+			
+			
+			// Line#  1 : CancelDefault( )
+			// Line#  2 : ResetForm( )
+			// Line#  3 : UpdateData ( Get ) 
+			// Line#  4 : DownloadListPromptFromQueue ( RWC_PromptControl1 , Production ) 
+			// Line#  5 : Var.ROWCNT = ListPromptGetRowCount ( RWC_PromptControl1 , Production ) 
+			// Line#  6 : If Var.ROWCNT < (Numeric) 1
+			// Line#  7 : StatusWindow ( @Info , @No Production Orders Found for picking , 2 ) 
+			// Line#  8 : CloseForm( )
+			// Line#  9 : End If
+			
+		}catch(ex){ alert(ex); }
+			_completeAction(shouldContinue);
+		};
+			
+		frmProductionPickList.Confirm = new cdt.prompt("Confirm", // Name
+				"Confirm?" , // Caption Resource ID
+				"", // Default
+				true, // ResetEnabled
+				true, // PreviousEnabled
+				true, // AbortEnabled
+				false, // ShowButton
+				"", // Button Caption
+				null, // ButtonClick Delegate
+				false, // ShowButton2
+				"", // Button2 Caption
+				null, // ButtonClick2 Delegate
+				false, // ShowButton3
+				"", // Button3 Caption
+				null, // ButtonClick3 Delegate
+				null, // Reset Click
+				null, // Previous Click
+				null, // Abort Click
+				false, // Skipable
+				false, // Skip
+				false, // UseHistory
+				"", // Skip Default
+				true, // ToUpper
+				"", // Validation
+				true, // ValidIfNotEmpty
+				"CONFIRM", // Variable
+				frmProductionPickList.RWC_PromptControl1_Confirm_ValidEvent, // OnValid Delegate
+				cdt.PromptControlType.Text
+				);
+
+		frmProductionPickList.RWC_PromptControl1.addPrompt(frmProductionPickList.Confirm);
+
+		frmProductionPickList.viewModel = new cdt.viewModel( "frmProductionPickList",frmProductionPickList.RWC_PromptControl1,"frmProductionPickList");
+</script>
+	        <header data-role='header'>
+	            <div data-role='navbar'>
+	                <div data-role='view-title'></div>
+	                <a data-role='button' data-align='right' data-rel='popover' href='#popupMenu' data-icon='settings'></a>
+	                <a data-bind='visible: isMenuVisible' data-role='button' data-align='left' data-click='showMenu' data-icon='organize' ></a>
+	            </div>
+	        </header>
+	        <div data-bind='invisible: isLoggedIn'>
+	            <div data-bind='visible: promptControl.isCurrentPromptList' >
+	                <ul id='frmProductionPickList-listControl' data-role='listview' ></ul>
+	            </div>
+	            <div id='frmProductionPickList-historyScroller' data-role='scroller' class='historyScroller' >
+	                <ul id='frmProductionPickList-historyList' data-role='listview' data-template='historyTemplate' data-bind='visible: promptControl.isHistoryVisible' style='margin-bottom: 20px; margin-left: 0px;'></ul>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptText' >
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmProductionPickList-textInput' data-bind='text: promptControl.textControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmProductionPickList-textInput' type='text' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.textControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div><img src='images/barcode.png' style='width:32px; height:32px;' onclick='showScanner()' /></div>
+	                    <div><img src='images/reset.png' id='Img1' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	            <div data-bind='visible: promptControl.isCurrentPromptPassword'>
+	                <div class='promptControlLeft' >
+	                    <div><label for='frmProductionPickList-passwordInput' data-bind='text: promptControl.passwordControl.caption'></label></div>
+	                    <div><input style='width: 100%;'  id='frmProductionPickList-passwordInput' type='password' data-bind='style: {text-transform: promptControl.textControl.toUpperStyle},value: promptControl.passwordControl.text' data-value-update='keyup' /></div>
+	                </div>
+	                <div class='promptControlRight'>
+	                    <div style='height:46px'></div>
+	                    <div><img src='images/reset.png' data-bind='click: promptControl.resetText' style='width:32px; height:32px;' /></div>
+	                </div>
+	            </div>
+	        </div>
+</div>
+</body>
+</html>
