@@ -26,7 +26,11 @@ var resizeMenuContainer = function () {
 };
 
 var showScanner = function () {
-    window.plugins.barcodeScanner.scan(function (result) {
+
+    alert("show scanner!");
+
+    //window.plugins.barcodeScanner.scan(function (result) {
+    cordova.plugins.barcodeScanner.scan(function (result) {
         cdt.Application.getCurrentViewModel().promptControl.onScan(result.text, result.cancelled);
     }, function (error) {
         alert("Scanning failed: " + error);
