@@ -136,6 +136,10 @@
         kendo.bind($("#configurationModalView"), cdt.Application.configuration);
         kendo.bind($("#messageBoxDialog"), cdt.MessageBox);
 
+        resizeMenuContainer();
+
+        $(window).resize(resizeMenuContainer);
+
     </script>
 
 </body>
