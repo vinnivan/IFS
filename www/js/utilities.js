@@ -27,10 +27,12 @@ var resizeMenuContainer = function () {
 
 var showScanner = function () {
 
-    alert("show scanner!");
+    //alert("show scanner!");
 
     //window.plugins.barcodeScanner.scan(function (result) {
-    cordova.plugins.barcodeScanner.scan(function (result) {
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+    scanner.scan(function (result) {
         cdt.Application.getCurrentViewModel().promptControl.onScan(result.text, result.cancelled);
     }, function (error) {
         alert("Scanning failed: " + error);
